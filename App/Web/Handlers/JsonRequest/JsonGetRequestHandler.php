@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Serato\Web\Handlers\JsonRequestHandler;
 
-class GetRequestHandler extends JsonRequestHandler
+class JsonGetRequestHandler extends JsonRequestHandler
 {
     public function httpMethod(): string
     {

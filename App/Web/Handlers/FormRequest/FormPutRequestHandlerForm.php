@@ -5,7 +5,7 @@ namespace Serato\Web\Handlers\FormRequest;
 
 
 
-class PutRequestHandler extends PostRequestHandler
+class FormPutRequestHandlerForm extends FormPostRequestHandler
 {
 
     public function httpMethod(): string

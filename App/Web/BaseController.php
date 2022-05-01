@@ -7,26 +7,27 @@ use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Serato\Web\Handlers\ContentTypes;
-use Serato\Web\Handlers\RequestHandlerInterface;
+use Serato\Web\Handlers\HandlerService;
+use Serato\Web\Handlers\RequestHandler;
 use stdClass;
 
 
 abstract class BaseController
 {
-    private object $requestHandlers;
+    private object $handlerService;
 
     #[Pure] public function __construct()
     {
-        $this->requestHandlers = new stdClass();
+        $this->handlerService = new HandlerService();
     }
 
     /** registers the request handlers as a property in $requestHandlers object.
      * eg GET-> getHandler, POST-> post handler
-     * @param RequestHandlerInterface $requestHandler
+     * @param RequestHandler $requestHandler
      */
-    public function registerRequestHandler(RequestHandlerInterface $requestHandler)
+    public function registerRequestHandler(RequestHandler $requestHandler)
     {
-        $this->requestHandlers->{strtoupper($requestHandler->httpMethod())} = $requestHandler;
+        $this->handlerService->register($requestHandler);
     }
 
 
@@ -38,27 +39,16 @@ abstract class BaseController
      */
     public function execute(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-
         $method = strtoupper($request->getMethod());
-        if (property_exists($this->requestHandlers, $method)) {
-            if ($this->requestHandlers->{$method}->isValidContent($request)){
-                return $this->requestHandlers->{$method}->execute($request, $response);
+        $handlers = $this->handlerService->getHandler($method, $request);
+        if (count($handlers) > 0) {
+            foreach ($handlers as $handler) {
+                return $handler->execute($request, $response);
             }
         } else {
             return $response->withStatus('405', 'Method not supported!'); // block DELETE,PATCH etch
         }
     }
-
-    /** Check whether http request handles JSON
-     * @param ServerRequestInterface $request
-     * @return bool
-     */
-    public function isJsonRequest(ServerRequestInterface $request): bool
-    {
-
-    }
-
-
 
     abstract function init();
 

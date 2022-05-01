@@ -4,7 +4,7 @@
 namespace Serato\Web\Handlers\JsonRequest;
 
 
-class PutRequestHandler extends PostRequestHandler
+class JsonPutRequestHandler extends JsonPostRequestHandler
 {
 
     public function httpMethod(): string

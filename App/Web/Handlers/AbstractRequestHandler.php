@@ -7,7 +7,7 @@ namespace Serato\Web\Handlers;
 use Psr\Http\Message\ResponseInterface;
 use Serato\Common\ValidityChecker;
 
-abstract class AbstractRequestHandler implements RequestHandlerInterface
+abstract class AbstractRequestHandler implements RequestHandler
 {
     use ValidityChecker;
 

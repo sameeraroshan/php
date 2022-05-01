@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Serato\Web\Handlers\FormRequestHandler;
 
-class GetRequestHandler extends FormRequestHandler
+class FormGetRequestHandler extends FormRequestHandler
 {
     public function httpMethod(): string
     {
