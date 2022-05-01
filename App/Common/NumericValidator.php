@@ -4,7 +4,6 @@ namespace Serato\Common;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use ReflectionClass;
 use Serato\Annotations\SeratoNumeric;
 
 

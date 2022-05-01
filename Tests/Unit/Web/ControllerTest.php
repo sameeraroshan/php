@@ -19,6 +19,7 @@ class ControllerTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         self::$controller = new Controller();
+        self::$controller->init();
         self::$streamFactory = new StreamFactory();
     }
     //JSON data
@@ -29,9 +30,9 @@ class ControllerTest extends TestCase
      */
     public function jsonMessageGet()
     {
-        $stream = self::$streamFactory->createStream( );
+        $stream = self::$streamFactory->createStream();
 
-        $request = new ServerRequest([], [], '', 'GET',$stream,
+        $request = new ServerRequest([], [], '', 'GET', $stream,
             [
                 'Content-Type' => 'application/json',
             ], [], ['userId' => 2000, 'fieldId' => 1000]
@@ -216,8 +217,8 @@ class ControllerTest extends TestCase
 
         $request = new ServerRequest([], [], '', 'POST', self::$streamFactory->createStream(),
             [
-                'Content-Type'  => 'application/x-www-form-urlencoded',
-            ],[],[],$message
+                'Content-Type' => 'application/x-www-form-urlencoded',
+            ], [], [], $message
         );
 
         $response = self::$controller->execute($request, new Response());
@@ -239,8 +240,8 @@ class ControllerTest extends TestCase
 
         $request = new ServerRequest([], [], '', 'POST', self::$streamFactory->createStream(),
             [
-                'Content-Type'  => 'multipart/form-data',
-            ],[],[],$message
+                'Content-Type' => 'multipart/form-data',
+            ], [], [], $message
         );
 
         $response = self::$controller->execute($request, new Response());
