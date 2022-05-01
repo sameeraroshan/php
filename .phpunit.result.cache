@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":240:{a:2:{s:7:"defects";a:1:{s:44:"Serato\Tests\Unit\Orm\DownloadLogTest::test1";i:4;}s:5:"times";a:2:{s:44:"Serato\Tests\Unit\Orm\DownloadLogTest::test1";d:0.025;s:64:"Serato\Tests\Unit\Orm\DownloadLogTest::test_only_numeric_allowed";d:0.004;}}}
