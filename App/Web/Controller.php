@@ -4,9 +4,9 @@
 namespace Serato\Web;
 
 use Serato\Common\ValidityChecker;
-use Serato\Web\Handlers\GetRequestHandler;
-use Serato\Web\Handlers\PostRequestHandler;
-use Serato\Web\Handlers\PutRequestHandler;
+use Serato\Web\Handlers\FormRequest\GetRequestHandler;
+use Serato\Web\Handlers\FormRequest\PostRequestHandler;
+use Serato\Web\Handlers\FormRequest\PutRequestHandler;
 
 class Controller extends BaseController
 {

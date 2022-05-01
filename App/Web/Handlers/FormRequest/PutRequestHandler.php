@@ -1,7 +1,8 @@
 <?php
 
 
-namespace Serato\Web\Handlers;
+namespace Serato\Web\Handlers\FormRequest;
+
 
 
 class PutRequestHandler extends PostRequestHandler
