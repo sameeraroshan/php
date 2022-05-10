@@ -25,7 +25,7 @@ class FormPostRequestHandler extends FormRequestHandler
     public function execute(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $message = "<h1>Html Response</h1></br><h2> Html response</h2>";
-        $response = $this->htmlResponse($response, $message);
+        $response = $this->handle($response, $message);
         return $response;
     }
 }

@@ -5,7 +5,7 @@ namespace Serato\Web\Handlers;
 
 use JetBrains\PhpStorm\Pure;
 
-class HandlerService
+class HandlerContainer
 {
     private $handlers;
 
@@ -22,7 +22,7 @@ class HandlerService
         array_push($this->handlers, $handler);
     }
 
-    /** return the corrent handler based on method and content type
+    /** return the correct handler based on method and content type
      * @param $method
      * @param $request
      * @return array

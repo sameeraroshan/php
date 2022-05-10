@@ -5,9 +5,12 @@ namespace Serato\Web\Handlers;
 
 
 use Psr\Http\Message\ServerRequestInterface;
+use Serato\Common\JsonResponse;
+use Serato\Common\ValidityChecker;
 
-abstract class  JsonRequestHandler extends AbstractRequestHandler
-{
+abstract class  JsonRequestHandler implements RequestHandler
+{   use ValidityChecker;
+    use JsonResponse;
 
     /**Check whether http request handles JSON
      * @param ServerRequestInterface $request

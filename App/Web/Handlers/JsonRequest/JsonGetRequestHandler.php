@@ -25,6 +25,6 @@ class JsonGetRequestHandler extends JsonRequestHandler
     {
         //$request body is ignored since this is get request
         $queryParams = $request->getQueryParams();
-        return $this->jsonResponse($response, $queryParams);
+        return $this->handle($response, $queryParams);
     }
 }

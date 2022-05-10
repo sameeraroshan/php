@@ -15,7 +15,4 @@ interface RequestHandler
 
     public function execute(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface;
 
-    public function htmlResponse(ResponseInterface $response, $content): ResponseInterface;
-
-    public function jsonResponse(ResponseInterface $response, $content): ResponseInterface;
 }

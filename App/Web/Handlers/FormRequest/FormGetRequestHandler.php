@@ -1,15 +1,18 @@
 <?php
 
 
-namespace Serato\Web\Handlers\FormRequest;;
+namespace Serato\Web\Handlers\FormRequest;
+;
 
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Serato\Common\HtmlResponse;
 use Serato\Web\Handlers\FormRequestHandler;
 
 class FormGetRequestHandler extends FormRequestHandler
 {
+
     public function httpMethod(): string
     {
         return "GET";
@@ -25,7 +28,7 @@ class FormGetRequestHandler extends FormRequestHandler
     {   //$request body is ignored since this is get request
         $queryParams = $request->getQueryParams();
         $message = "<h1>Html Response</h1></br><h2> Html response for GET request" . json_encode($queryParams) . "</h2>";
-        return $this->htmlResponse($response, $message);
+        return $this->handle($response, $message);
     }
 
 }

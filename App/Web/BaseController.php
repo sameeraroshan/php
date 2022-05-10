@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Serato\Web\Handlers\ContentTypes;
-use Serato\Web\Handlers\HandlerService;
+use Serato\Web\Handlers\HandlerContainer;
 use Serato\Web\Handlers\RequestHandler;
 use stdClass;
 
@@ -18,7 +18,7 @@ abstract class BaseController
 
     #[Pure] public function __construct()
     {
-        $this->handlerService = new HandlerService();
+        $this->handlerService = new HandlerContainer();
     }
 
     /** registers the request handlers as a property in $requestHandlers object.

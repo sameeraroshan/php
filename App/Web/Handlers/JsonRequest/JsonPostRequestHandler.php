@@ -26,7 +26,7 @@ class JsonPostRequestHandler extends JsonRequestHandler
     {
         if ($this->isValidJson((string)$request->getBody())) {
             //sending back requested json.
-            $response = $this->jsonResponse($response, (string)$request->getBody());
+            $response = $this->handle($response, (string)$request->getBody());
         } else {
             $response = $response->withStatus('400', 'Bad JSON Content');
         }

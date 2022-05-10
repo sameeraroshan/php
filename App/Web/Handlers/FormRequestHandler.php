@@ -5,11 +5,11 @@ namespace Serato\Web\Handlers;
 
 
 use Psr\Http\Message\ServerRequestInterface;
+use Serato\Common\HtmlResponse;
 
-abstract class FormRequestHandler extends AbstractRequestHandler
+abstract class FormRequestHandler implements RequestHandler
 {
-
-
+    use HtmlResponse;
     /** Check whether http request handles Form Data
      * @param ServerRequestInterface $request
      * @return bool
